@@ -1,0 +1,251 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import TechLogos from '../components/TechLogos.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import BlogCard from '../components/BlogCard.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Nav />
+  <Hero />
+
+  <!-- Stats Row -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat animate-on-scroll" style="transition-delay: 0ms">
+          <span class="stat-number gradient-text">17+</span>
+          <span class="stat-label">Years in cloud data engineering</span>
+        </div>
+        <div class="stat animate-on-scroll" style="transition-delay: 100ms">
+          <span class="stat-number gradient-text">$200B+</span>
+          <span class="stat-label">Assets under management at our largest client engagement</span>
+        </div>
+        <div class="stat animate-on-scroll" style="transition-delay: 200ms">
+          <span class="stat-number gradient-text">Fortune 500</span>
+          <span class="stat-label">Clients across financial services</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Statement -->
+  <section class="problem-statement">
+    <div class="container animate-on-scroll">
+      <p class="problem-text">
+        "Most organizations are drowning in data but starving for insight. Legacy systems, siloed databases, and fragmented ownership make it nearly impossible to move forward with AI. <strong>We fix that.</strong>"
+      </p>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Pain Points -->
+  <section class="pain-points">
+    <div class="container">
+      <div class="section-label">The Challenge</div>
+      <div class="grid-3">
+        <div class="card animate-on-scroll" style="transition-delay: 0ms">
+          <div class="card-icon">🔒</div>
+          <h3 class="card-title">Siloed Data</h3>
+          <p class="card-description">Your data lives in dozens of disconnected systems. No single source of truth. No enterprise visibility.</p>
+        </div>
+        <div class="card animate-on-scroll" style="transition-delay: 100ms">
+          <div class="card-icon">🧩</div>
+          <h3 class="card-title">Fragmented Ownership</h3>
+          <p class="card-description">Every team has built their own solution. Reconciliation is manual, slow, and expensive.</p>
+        </div>
+        <div class="card animate-on-scroll" style="transition-delay: 200ms">
+          <div class="card-icon">🚫</div>
+          <h3 class="card-title">No Path to AI</h3>
+          <p class="card-description">You can't build AI on a broken data foundation. Legacy systems block every initiative.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- How We Help -->
+  <section class="how-we-help">
+    <div class="container">
+      <div class="section-label">The Solution</div>
+      <h2 class="section-title animate-on-scroll">How We Help</h2>
+      <div class="grid-3">
+        <div class="card animate-on-scroll" style="transition-delay: 0ms">
+          <div class="card-icon">💡</div>
+          <h3 class="card-title">AI Strategy & Roadmap</h3>
+          <p class="card-description">We assess your data maturity, identify high-impact AI use cases, and build a phased plan aligned to business goals.</p>
+        </div>
+        <div class="card animate-on-scroll" style="transition-delay: 100ms">
+          <div class="card-icon">⚙️</div>
+          <h3 class="card-title">AI & Data Solutions</h3>
+          <p class="card-description">From RAG-powered knowledge systems to intelligent automation to enterprise data lakes — we design and build what you need.</p>
+        </div>
+        <div class="card animate-on-scroll" style="transition-delay: 200ms">
+          <div class="card-icon">🚀</div>
+          <h3 class="card-title">Production & Scale</h3>
+          <p class="card-description">We don't stop at prototypes. We engineer AI and data systems for reliability, security, and enterprise-grade performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Partners -->
+  <TechLogos />
+
+  <!-- Our Approach -->
+  <ProcessSteps />
+
+  <hr class="section-divider" />
+
+  <!-- Case Studies Preview -->
+  <section class="case-studies-preview">
+    <div class="container">
+      <div class="section-label">Results</div>
+      <h2 class="section-title animate-on-scroll">Proven Results</h2>
+      <div class="grid-3" style="margin-top: 32px;">
+        <div class="animate-on-scroll" style="transition-delay: 0ms">
+          <CaseStudyCard
+            title="AI-Powered OpsChat for Enterprise Operations"
+            summary="Built an AI conversational interface that lets L1/L2 support staff diagnose operational issues instantly — ingesting 140,000+ log messages per second into a RAG vector database via a GPU server farm."
+            href="/case-studies"
+          />
+        </div>
+        <div class="animate-on-scroll" style="transition-delay: 100ms">
+          <CaseStudyCard
+            title="Enterprise Data Lake for a $200B Pension Fund"
+            summary="Built a cloud-based data ecosystem that gave investment teams instant access to hundreds of datasets for analytics-driven decisions."
+            href="/case-studies"
+          />
+        </div>
+        <div class="animate-on-scroll" style="transition-delay: 200ms">
+          <CaseStudyCard
+            title="Datris.ai — AI Agent-Native Data Platform"
+            summary="Founded and built an open-source data platform where AI agents operate pipelines via MCP — ingestion, validation, transformation, and RAG — all driven by natural language instead of code."
+            href="/case-studies"
+          />
+        </div>
+      </div>
+      <div class="cta-link animate-on-scroll">
+        <a href="/case-studies" class="btn btn-secondary">View All Case Studies &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Logos -->
+  <ClientLogos />
+
+  <hr class="section-divider" />
+
+  <!-- Blog Preview -->
+  <section class="blog-preview">
+    <div class="container">
+      <div class="section-label">Insights</div>
+      <h2 class="section-title animate-on-scroll">Latest Thinking</h2>
+      <div class="grid-3" style="margin-top: 32px;">
+        <div class="animate-on-scroll" style="transition-delay: 0ms">
+          <BlogCard
+            title="Why Your AI Initiative Will Fail Without a Data Strategy"
+            theme="AI Strategy"
+            href="/blog/ai-data-strategy"
+          />
+        </div>
+        <div class="animate-on-scroll" style="transition-delay: 100ms">
+          <BlogCard
+            title="RAG vs. Fine-Tuning: A Practical Guide for Enterprise Teams"
+            theme="Technical"
+            href="/blog/rag-vs-fine-tuning"
+          />
+        </div>
+        <div class="animate-on-scroll" style="transition-delay: 200ms">
+          <BlogCard
+            title="From Siloed Data to AI-Ready: Lessons from Financial Services"
+            theme="Industry"
+            href="/blog/siloed-data-to-ai-ready"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CtaBanner />
+
+  <Footer />
+</Layout>
+
+<style>
+  .problem-statement {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+  }
+
+  .problem-text {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .problem-text strong {
+    color: var(--text-primary);
+  }
+
+  .pain-points,
+  .how-we-help,
+  .case-studies-preview,
+  .blog-preview {
+    padding: var(--section-padding);
+  }
+
+  .cta-link {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .stats {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    text-align: center;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stat-number {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

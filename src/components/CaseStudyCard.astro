@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  href?: string;
+}
+
+const { title, summary, href } = Astro.props;
+---
+
+<div class="card case-card">
+  <h3 class="card-title">{title}</h3>
+  <p class="card-description">{summary}</p>
+  {href && <a href={href} class="card-link">Read More &rarr;</a>}
+</div>
+
+<style>
+  .case-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    transition: gap var(--transition-fast);
+  }
+
+  .card-link:hover {
+    gap: 8px;
+  }
+</style>

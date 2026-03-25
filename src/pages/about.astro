@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About — IData" description="IData is an AI and data consulting firm built on nearly two decades of enterprise data engineering.">
+  <Nav />
+  <PageHeader headline="About Us" />
+
+  <!-- Company Story -->
+  <section class="story">
+    <div class="container">
+      <div class="story-content animate-on-scroll">
+        <p>IData is an AI and data consulting firm built on nearly two decades of enterprise data engineering. Since 2007, we've designed and deployed mission-critical data infrastructure for the world's leading financial institutions — from prime brokerage platforms and pension funds to government-sponsored enterprises.</p>
+        <p>That foundation is what sets us apart. We don't just understand AI models — we understand the data systems that feed them, the compliance requirements that govern them, and the operational realities that determine whether they succeed or fail in production.</p>
+        <p>Today, we help enterprises modernize their data foundations and deploy AI solutions that are practical, scalable, and aligned to real business outcomes. Our clients span asset management, hedge funds, investment banking, wealth management, mutual funds, and retail banking.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Stats Row -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat animate-on-scroll" style="transition-delay: 0ms">
+          <span class="stat-number gradient-text">17+</span>
+          <span class="stat-label">Years in cloud data engineering</span>
+        </div>
+        <div class="stat animate-on-scroll" style="transition-delay: 100ms">
+          <span class="stat-number gradient-text">$200B+</span>
+          <span class="stat-label">Assets under management at our largest client engagement</span>
+        </div>
+        <div class="stat animate-on-scroll" style="transition-delay: 200ms">
+          <span class="stat-number gradient-text">Fortune 500</span>
+          <span class="stat-label">Clients across financial services</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Differentiators -->
+  <section class="differentiators">
+    <div class="container">
+      <div class="section-label">Why IData</div>
+      <h2 class="section-title animate-on-scroll">What Sets Us Apart</h2>
+      <div class="grid-3" style="margin-top: 32px;">
+        <div class="card animate-on-scroll" style="transition-delay: 0ms">
+          <div class="card-icon">🏗️</div>
+          <h3 class="card-title">Built on Data Engineering</h3>
+          <p class="card-description">AI doesn't work without clean, accessible, well-governed data. We've spent 17+ years building exactly that.</p>
+        </div>
+        <div class="card animate-on-scroll" style="transition-delay: 100ms">
+          <div class="card-icon">🏦</div>
+          <h3 class="card-title">Financial Services DNA</h3>
+          <p class="card-description">Deep domain expertise across banking, asset management, pensions, insurance, and capital markets.</p>
+        </div>
+        <div class="card animate-on-scroll" style="transition-delay: 200ms">
+          <div class="card-icon">⚡</div>
+          <h3 class="card-title">Production Mindset</h3>
+          <p class="card-description">Every engagement is designed for production — not just proof of concept. CI/CD, monitoring, and governance are built in from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+  <Footer />
+</Layout>
+
+<style>
+  .story {
+    padding: 80px 0;
+  }
+
+  .story-content {
+    max-width: 740px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .story-content p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .stats {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    text-align: center;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stat-number {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .differentiators {
+    padding: var(--section-padding);
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

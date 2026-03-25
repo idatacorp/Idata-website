@@ -1,0 +1,295 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Case Studies — IData" description="Real results from real engagements. See how IData helps enterprises modernize data and deploy AI.">
+  <Nav />
+  <PageHeader headline="Case Studies" subheadline="Real results from real engagements." />
+
+  <section class="case-studies">
+    <div class="container">
+
+      <!-- Case Study 1: OpsChat -->
+      <article class="case-study animate-on-scroll">
+        <div class="case-header">
+          <span class="badge">AI / Operations</span>
+          <h2 class="case-title">AI-Powered OpsChat for Enterprise Operations Support</h2>
+        </div>
+
+        <div class="case-body">
+          <div class="case-section">
+            <h4>Challenge</h4>
+            <p>L1 and L2 operations support staff were spending significant time querying multiple disconnected systems and software tools to diagnose and resolve operational issues. The manual process of cross-referencing logs, monitoring dashboards, and system data slowed incident response and created a steep learning curve for new team members.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>What IData Did</h4>
+            <p>IData designed and built OpsChat — an AI-powered conversational interface that allows operations staff to ask natural language questions about operational systems instead of manually querying multiple tools. The platform ingests operational data into a RAG vector database at over 140,000 log messages per second, powered by a multi-server GPU server farm. Support staff can now ask questions like "What's causing the latency spike on the payment service?" and get instant, context-rich answers grounded in real-time operational data.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>Results</h4>
+            <ul>
+              <li>L1 and L2 support staff resolve issues faster by querying a single conversational interface instead of multiple systems</li>
+              <li>Ingestion pipeline processes 140,000+ log messages per second into the RAG vector database</li>
+              <li>Multi-server GPU farm ensures low-latency responses even under heavy operational load</li>
+              <li>Reduced time-to-diagnosis for operational incidents</li>
+              <li>Accelerated onboarding for new support staff — institutional knowledge is now queryable</li>
+            </ul>
+          </div>
+
+          <div class="case-tech">
+            <span class="meta-label">Technologies</span>
+            <div class="tech-tags">
+              {['RAG / Vector Database', 'LLM', 'GPU Server Farm', 'Real-Time Log Ingestion', 'Natural Language Interface'].map((t) => (
+                <span class="badge">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <hr class="section-divider" />
+
+      <!-- Case Study 2: Datris -->
+      <article class="case-study animate-on-scroll">
+        <div class="case-header">
+          <span class="badge">AI / Data Platform</span>
+          <h2 class="case-title">Datris.ai — The First AI Agent-Native Data Platform</h2>
+        </div>
+
+        <div class="case-body">
+          <div class="case-section">
+            <h4>Background</h4>
+            <p>IData founded Datris.ai to solve a problem we kept seeing across every client engagement: enterprise data engineering is too complex, too fragile, and too dependent on specialized skills. Organizations spend months building and maintaining data pipelines that break when requirements change — and none of them were designed for the AI-native world we're entering.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>What We Built</h4>
+            <p>Datris is an open-source, AI agent-native data platform that handles the complete data lifecycle — ingestion, validation, transformation, storage, and retrieval — all driven by configuration and natural language instead of code. The platform treats AI agents as first-class pipeline operators via a built-in Model Context Protocol (MCP) server, allowing Claude, Cursor, and other AI agents to register datasets, trigger jobs, profile data, and query databases through conversation.</p>
+            <p>The platform replaces traditional hand-coded data quality rules with natural language AI rules — teams describe validation logic in plain English and Datris enforces it. Schema generation, data profiling, row-level transformations, and failure root cause analysis are all AI-powered. A complete RAG pipeline handles document extraction (PDF, Word, PowerPoint, Excel, HTML, email), chunking, embedding, and storage across five vector databases.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>Architecture</h4>
+            <p>Datris is entirely self-hosted with no vendor lock-in, built on proven open-source infrastructure: MinIO for S3-compatible object storage, MongoDB for metadata, Apache Kafka for streaming, HashiCorp Vault for secrets management, and Apache Spark for columnar file processing. It supports Anthropic Claude, OpenAI, and local Ollama models — swappable without configuration changes. Ingestion spans file uploads, bucket events, database polling (PostgreSQL, MySQL, MSSQL), and Kafka topics, with parallel output to Parquet, ORC, PostgreSQL, MongoDB, Kafka, REST endpoints, and vector databases including Qdrant, Weaviate, Milvus, Chroma, and pgvector.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>Results</h4>
+            <ul>
+              <li>Open-sourced on GitHub — community-driven with full documentation</li>
+              <li>AI agents can operate data pipelines end-to-end via MCP, eliminating the need for specialized data engineering for many use cases</li>
+              <li>Natural language data quality rules replace hand-coded validation logic</li>
+              <li>Supports 12+ input formats and 7+ output destinations in a single pipeline</li>
+              <li>Complete RAG pipeline from raw documents to vector search — out of the box</li>
+              <li>Zero vendor lock-in — runs on any cloud, on-premise, or locally via Docker</li>
+            </ul>
+          </div>
+
+          <div class="case-tech">
+            <span class="meta-label">Technologies</span>
+            <div class="tech-tags">
+              {['Scala', 'TypeScript', 'Python', 'MCP', 'MinIO', 'MongoDB', 'Apache Kafka', 'Apache Spark', 'HashiCorp Vault', 'Docker', 'RAG', 'Qdrant', 'Anthropic Claude', 'OpenAI', 'Ollama'].map((t) => (
+                <span class="badge">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <hr class="section-divider" />
+
+      <!-- Case Study 3 -->
+      <article class="case-study animate-on-scroll">
+        <div class="case-header">
+          <span class="badge">Financial Services</span>
+          <h2 class="case-title">Enterprise Data Lake & AI Foundation for a $200B Pension Fund</h2>
+        </div>
+
+        <div class="case-body">
+          <div class="case-section">
+            <h4>Client</h4>
+            <p>Large foreign pension fund managing $200B+ in public equities, private equities, real estate, infrastructure, and fixed income.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>Challenge</h4>
+            <p>The fund's data was scattered across dozens of on-premise databases and siloed teams. Each investment group had built independent, fragmented solutions. There was no enterprise visibility into available data, no single source of truth, and no foundation to support the analytics-driven investment strategies the fund wanted to pursue.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>What IData Did</h4>
+            <p>IData was engaged to architect and build a complete cloud-based data ecosystem on AWS. This included designing the multi-account security architecture, network infrastructure (Transit VPC, PrivateLink), infrastructure-as-code deployment (Terraform), serverless compute and storage, a full ETL ingestion pipeline, an enterprise data lake, a data catalog for discovery and governance, and API-based access for downstream analytics and applications. A sandbox environment was also created to support experimentation with new datasets and technologies.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>Results</h4>
+            <ul>
+              <li>Investment teams gained access to hundreds of datasets through a searchable data catalog</li>
+              <li>Analysts could pull data directly via API into their own environments (Python, Scala, Spark)</li>
+              <li>New software features deployed in hours or days instead of months via CI/CD</li>
+              <li>Eliminated redundant data reconciliation across teams</li>
+              <li>Created the data foundation required for AI/ML-driven investment analytics</li>
+              <li>Sandbox environment enabled rapid experimentation with new data sources</li>
+            </ul>
+          </div>
+
+          <div class="case-tech">
+            <span class="meta-label">Technologies</span>
+            <div class="tech-tags">
+              {['AWS (S3, Lambda, Glue, Athena)', 'Terraform', 'Spark', 'CI/CD Pipeline', 'Data Catalog', 'API Layer'].map((t) => (
+                <span class="badge">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <hr class="section-divider" />
+
+      <!-- Case Study 2 -->
+      <article class="case-study animate-on-scroll">
+        <div class="case-header">
+          <span class="badge">Government / Mortgage</span>
+          <h2 class="case-title">Data Modernization for a Government-Sponsored Mortgage Corporation</h2>
+        </div>
+
+        <div class="case-body">
+          <div class="case-section">
+            <h4>Client</h4>
+            <p>Large U.S. government-sponsored enterprise (GSE) in the mortgage industry.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>Challenge</h4>
+            <p>The GSE held vast amounts of mortgage, investment, and personal data spread across numerous legacy data warehouses and Hadoop environments. The firm maintained 40–50 staff in duplicated teams managing each siloed environment — teams with identical skill sets replicated many times over. Costs were high, agility was low, and there was no path to leverage modern analytics or AI.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>What IData Did</h4>
+            <p>IData led the migration and centralization of the GSE's data into AWS S3, integrating modern cloud technologies including Snowflake and MongoDB. The engagement involved consolidating decades of fragmented data infrastructure into a unified, cost-efficient cloud platform with modern governance and access patterns.</p>
+          </div>
+
+          <div class="case-section">
+            <h4>Results</h4>
+            <ul>
+              <li>Consolidated siloed data warehouses into a single cloud-based data platform</li>
+              <li>Dramatically reduced infrastructure costs (object storage vs. legacy warehouse licensing)</li>
+              <li>Freed skilled personnel from maintenance roles to work on higher-value projects</li>
+              <li>Now in its fourth year of implementation and expansion</li>
+              <li>Created the unified data layer needed to support future AI/ML initiatives</li>
+            </ul>
+          </div>
+
+          <div class="case-tech">
+            <span class="meta-label">Technologies</span>
+            <div class="tech-tags">
+              {['AWS S3', 'Snowflake', 'MongoDB', 'Cloud Migration Tooling'].map((t) => (
+                <span class="badge">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <CtaBanner headline="Have a similar challenge?" buttonText="Let's Talk →" />
+  <Footer />
+</Layout>
+
+<style>
+  .case-studies {
+    padding: 40px 0 80px;
+  }
+
+  .case-study {
+    padding: 48px 0;
+  }
+
+  .case-header {
+    margin-bottom: 32px;
+  }
+
+  .case-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-top: 16px;
+  }
+
+  .case-body {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .case-section h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .case-section p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .case-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .case-section li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .case-section li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .case-tech {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .meta-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    padding-top: 4px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>

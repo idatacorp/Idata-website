@@ -1,0 +1,47 @@
+---
+interface Props {
+  headline: string;
+  subheadline?: string;
+}
+
+const { headline, subheadline } = Astro.props;
+---
+
+<section class="page-header">
+  <div class="bg-grid"></div>
+  <div class="header-glow bg-glow"></div>
+  <div class="container">
+    <h1 class="page-title">{headline}</h1>
+    {subheadline && <p class="page-subtitle">{subheadline}</p>}
+  </div>
+</section>
+
+<style>
+  .page-header {
+    padding: 200px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-glow {
+    top: -300px;
+    left: 30%;
+    background: radial-gradient(circle, rgba(46, 204, 113, 0.15), transparent 70%);
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 640px;
+    line-height: 1.7;
+    position: relative;
+  }
+</style>

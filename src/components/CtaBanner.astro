@@ -1,0 +1,40 @@
+---
+interface Props {
+  headline?: string;
+  buttonText?: string;
+  href?: string;
+}
+
+const {
+  headline = "Ready to explore what AI can do for your business?",
+  buttonText = "Start a Conversation →",
+  href = "/contact",
+} = Astro.props;
+---
+
+<section class="cta-banner">
+  <div class="container cta-inner animate-on-scroll">
+    <h2 class="cta-headline">{headline}</h2>
+    <a href={href} class="btn btn-primary">{buttonText}</a>
+  </div>
+</section>
+
+<style>
+  .cta-banner {
+    padding: 100px 0;
+  }
+
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-headline {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

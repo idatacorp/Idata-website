@@ -1,0 +1,50 @@
+---
+const clients = [
+  'Freddie Mac',
+  'Citi',
+  'Goldman Sachs',
+  'JPMorgan',
+  'Bank of America',
+  'Bridgewater',
+  'CPP Investments',
+  'Credit Suisse',
+];
+---
+
+<section class="client-logos">
+  <div class="container animate-on-scroll">
+    <div class="section-label">Trusted By</div>
+    <div class="client-strip">
+      {clients.map((name) => (
+        <span class="client-name">{name}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .client-logos {
+    padding: 60px 0;
+  }
+
+  .client-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px 48px;
+    margin-top: 24px;
+  }
+
+  .client-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
+  }
+
+  .client-name:hover {
+    color: var(--text-secondary);
+  }
+</style>

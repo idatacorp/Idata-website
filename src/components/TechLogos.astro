@@ -1,0 +1,76 @@
+---
+const categories = [
+  {
+    label: 'AI Platforms',
+    logos: ['OpenAI', 'Anthropic', 'AWS Bedrock', 'Azure OpenAI', 'Google Vertex AI'],
+  },
+  {
+    label: 'Cloud & Data',
+    logos: ['AWS', 'Azure', 'GCP', 'Databricks', 'Snowflake'],
+  },
+  {
+    label: 'Frameworks',
+    logos: ['LangChain', 'Apache Spark', 'Apache Kafka', 'Apache Iceberg'],
+  },
+  {
+    label: 'Data Stores',
+    logos: ['PostgreSQL', 'MongoDB', 'Delta Lake', 'Qdrant'],
+  },
+];
+---
+
+<section class="tech-logos">
+  <div class="container animate-on-scroll">
+    <div class="section-label">Technology Partners</div>
+    <div class="logo-groups">
+      {categories.map((cat) => (
+        <div class="logo-group">
+          <span class="group-label">{cat.label}</span>
+          <div class="logo-pills">
+            {cat.logos.map((logo) => (
+              <span class="badge">{logo}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tech-logos {
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+  }
+
+  .logo-groups {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 24px;
+  }
+
+  .group-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .logo-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .logo-groups {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

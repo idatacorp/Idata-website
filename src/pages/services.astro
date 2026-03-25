@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    title: 'AI Strategy & Roadmap',
+    desc: "We assess your current data landscape, identify high-impact AI use cases, and deliver a prioritized roadmap with architecture blueprints and ROI projections. Ideal for organizations that know AI matters but aren't sure where to start.",
+    deliverables: 'Strategy deck, prioritized use case backlog, architecture blueprint, cost model',
+  },
+  {
+    title: 'Data Modernization & Cloud Migration',
+    desc: "Legacy systems and siloed databases are the #1 blocker to AI adoption. We design and build modern, cloud-native data ecosystems — data lakes, lakehouses, streaming ingestion, and governance frameworks — that make your data AI-ready.",
+    deliverables: 'Cloud architecture, data lake/lakehouse, ETL/ELT pipelines, data catalog, security & compliance implementation',
+    technologies: 'AWS, Azure, GCP, Databricks, Snowflake, Apache Iceberg, Delta Lake, Kafka, Terraform',
+  },
+  {
+    title: 'AI Application Development',
+    desc: 'Custom AI-powered applications tailored to your business — RAG-powered knowledge systems, intelligent document processing, chatbots, copilots, recommendation engines, and anomaly detection.',
+    deliverables: 'Production AI application, API layer, vector database integration, evaluation framework, documentation',
+    technologies: 'OpenAI, Anthropic, AWS Bedrock, LangChain, Qdrant, Elastic, PostgreSQL',
+  },
+  {
+    title: 'Intelligent Automation',
+    desc: 'Automate document processing, data extraction, classification, validation, and decision support workflows with AI. Reduce manual effort and accelerate throughput on repetitive, high-volume tasks.',
+    deliverables: 'Automation pipeline, human-in-the-loop UI, monitoring dashboard, integration with existing systems',
+  },
+  {
+    title: 'Data Quality & Governance',
+    desc: 'Clean data is the prerequisite for every AI initiative. We implement data validation, profiling, deduplication, and governance frameworks that ensure your data is accurate, compliant, and trustworthy.',
+    deliverables: 'Data quality rule engine, profiling reports, compliance policies, dataset registration and cataloging',
+  },
+  {
+    title: 'Production Support & Optimization',
+    desc: "We don't disappear after launch. Ongoing support for CI/CD pipelines, monitoring, cost optimization, model drift detection, and capability expansion as your AI maturity grows.",
+    deliverables: 'CI/CD pipeline, monitoring dashboards, SLA-backed support, quarterly optimization reviews',
+  },
+];
+
+const models = [
+  {
+    name: 'Advisory',
+    desc: 'Short-term strategy engagements (2–4 weeks). AI readiness assessments and roadmapping.',
+  },
+  {
+    name: 'Project-Based',
+    desc: 'Fixed-scope delivery of a specific AI or data modernization solution.',
+  },
+  {
+    name: 'Embedded Team',
+    desc: 'Our engineers work alongside your team on a sustained basis. Ideal for multi-year transformation programs.',
+  },
+];
+---
+
+<Layout title="Services — IData" description="End-to-end AI and data consulting — from strategy to production.">
+  <Nav />
+  <PageHeader
+    headline="Services"
+    subheadline="End-to-end AI and data consulting — from strategy to production."
+  />
+
+  <section class="services-list">
+    <div class="container">
+      {services.map((svc, i) => (
+        <div class="service-block animate-on-scroll" style={`transition-delay: ${i * 80}ms`}>
+          <h3 class="service-title">{svc.title}</h3>
+          <p class="service-desc">{svc.desc}</p>
+          <div class="service-meta">
+            <div class="meta-item">
+              <span class="meta-label">Deliverables</span>
+              <span class="meta-value">{svc.deliverables}</span>
+            </div>
+            {svc.technologies && (
+              <div class="meta-item">
+                <span class="meta-label">Technologies</span>
+                <span class="meta-value">{svc.technologies}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section class="engagement-models">
+    <div class="container">
+      <div class="section-label">Engagement Models</div>
+      <h2 class="section-title animate-on-scroll">How We Work With You</h2>
+      <div class="grid-3" style="margin-top: 32px;">
+        {models.map((model, i) => (
+          <div class="card animate-on-scroll" style={`transition-delay: ${i * 100}ms`}>
+            <h3 class="card-title">{model.name}</h3>
+            <p class="card-description">{model.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+  <Footer />
+</Layout>
+
+<style>
+  .services-list {
+    padding: 40px 0 80px;
+  }
+
+  .service-block {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-color);
+    max-width: 800px;
+  }
+
+  .service-block:last-child {
+    border-bottom: none;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .service-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .service-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .meta-item {
+    display: flex;
+    gap: 12px;
+    font-size: 0.875rem;
+  }
+
+  .meta-label {
+    font-weight: 600;
+    color: var(--accent);
+    min-width: 110px;
+    flex-shrink: 0;
+  }
+
+  .meta-value {
+    color: var(--text-secondary);
+  }
+
+  .engagement-models {
+    padding: var(--section-padding);
+  }
+
+  @media (max-width: 480px) {
+    .meta-item {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+</style>

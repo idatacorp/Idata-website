@@ -1,0 +1,102 @@
+---
+const steps = [
+  {
+    num: '01',
+    title: 'Discover',
+    desc: 'Stakeholder interviews, data audit, opportunity sizing. We find where AI and modern data architecture create the most value.',
+  },
+  {
+    num: '02',
+    title: 'Design',
+    desc: 'Architecture design, technology selection, security and compliance planning. We design for production from day one.',
+  },
+  {
+    num: '03',
+    title: 'Build',
+    desc: 'Agile delivery with working demos. Data pipelines, AI applications, cloud migrations — whatever the engagement demands.',
+  },
+  {
+    num: '04',
+    title: 'Deploy',
+    desc: 'CI/CD, monitoring, access controls, and governance. Production-ready in hours, not months.',
+  },
+  {
+    num: '05',
+    title: 'Optimize',
+    desc: 'Continuous evaluation, cost optimization, and capability expansion as your AI and data maturity grows.',
+  },
+];
+---
+
+<section class="process">
+  <div class="container">
+    <div class="section-label">Our Approach</div>
+    <h2 class="section-title animate-on-scroll">From Idea to Impact</h2>
+    <div class="steps">
+      {steps.map((step, i) => (
+        <div class="step animate-on-scroll" style={`transition-delay: ${i * 100}ms`}>
+          <div class="step-number">{step.num}</div>
+          <div class="step-content">
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-desc">{step.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .step:last-child {
+    border-bottom: none;
+  }
+
+  .step-number {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.6;
+    flex-shrink: 0;
+    width: 64px;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  @media (max-width: 480px) {
+    .step {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .step-number {
+      font-size: 1.5rem;
+    }
+  }
+</style>

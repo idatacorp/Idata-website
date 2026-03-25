@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contact — IData" description="Start a conversation with IData about AI strategy, data modernization, or AI application development.">
+  <Nav />
+  <PageHeader
+    headline="Let's Talk"
+    subheadline="Whether you're exploring AI for the first time or modernizing your data foundation for the future, we'd love to hear from you."
+  />
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <form class="contact-form card animate-on-scroll" action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company <span class="required">*</span></label>
+            <input type="text" id="company" name="company" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+
+          <div class="form-group">
+            <label for="service">What can we help with? <span class="required">*</span></label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option value="ai-strategy">AI Strategy</option>
+              <option value="data-modernization">Data Modernization</option>
+              <option value="ai-app-dev">AI Application Development</option>
+              <option value="intelligent-automation">Intelligent Automation</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell us more</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Message &rarr;</button>
+        </form>
+
+        <!-- Direct Contact -->
+        <div class="direct-contact animate-on-scroll" style="transition-delay: 100ms">
+          <h3>Direct Contact</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-label">Name</span>
+              <span>Todd Fearn</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">General Inquiries</span>
+              <a href="mailto:info@idata.net">info@idata.net</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">LinkedIn</span>
+              <a href="https://www.linkedin.com/company/14068550" target="_blank" rel="noopener noreferrer">IData Corporation</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .contact-section {
+    padding: 40px 0 120px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .required {
+    color: var(--accent);
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 12px 16px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .direct-contact {
+    padding-top: 16px;
+  }
+
+  .direct-contact h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .contact-item a {
+    color: var(--accent);
+    transition: opacity var(--transition-fast);
+  }
+
+  .contact-item a:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import PageHeader from '../components/PageHeader.astro';
+import TeamMember from '../components/TeamMember.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Team — IData" description="Meet IData's leadership team — experts building and deploying AI and cloud-based solutions at Fortune 500 firms.">
+  <Nav />
+  <PageHeader
+    headline="Leadership"
+    subheadline="Experts building and deploying AI and cloud-based solutions at Fortune 500 firms."
+  />
+
+  <section class="team-bios">
+    <div class="container">
+      <div class="bios-grid">
+        <TeamMember
+          name="Todd Fearn"
+          title="Founder & CEO"
+          initials="TF"
+          photo="/shawn-bardong.png"
+          bio={[
+            "Todd has over 35 years of experience building technology for the financial services industry and beyond. He has held senior architecture and engineering roles at some of the world's most demanding institutions — including CPP Investment Board ($200B+ pension fund), Bridgewater Associates, Goldman Sachs, and Deutsche Bank — giving him firsthand experience with the data, compliance, and operational challenges that enterprise AI must solve.",
+            "Todd is a hands-on technologist with deep expertise as a cloud architect (AWS since 2007) and software developer across Scala, Python, Java, C++, and more. He currently leads IData's AI consulting practice, helping financial services firms modernize their data foundations and deploy production AI solutions.",
+            "Prior to IData, Todd founded and led several venture-backed technology companies: Code360, which built and sold XML server software to Fortune 500 firms; Adaptinet, a peer-to-peer software platform; and REV Entertainment, a music technology company initially funded by Warner Music, Elektra, and Atlantic Records.",
+          ]}
+        />
+        <TeamMember
+          name="Shawn Bardong"
+          title="Managing Partner, Strategy & Operations"
+          initials="SB"
+          photo="/todd-fearn.png"
+          bio={[
+            "Shawn has over 30 years of experience leading teams across trading, data, analytics, and technology. He is a product management expert with extensive experience delivering new products across global financial services — with deep knowledge of financial asset analytics, automated execution, market structure, and compliance.",
+            "Prior roles include MD/Head of Trading (Japan) at Morgan Stanley, MD/Pan-Asian CTO for Morgan Stanley's Investment Bank, Global COO for Strategies & Modeling, and COO for Arxis Capital Group. Shawn is an AWS Certified Cloud Practitioner and holds a BA in Economics from Hobart College.",
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+  <Footer />
+</Layout>
+
+<style>
+  .team-bios {
+    padding: 40px 0 80px;
+  }
+
+  .bios-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 800px;
+  }
+</style>

@@ -1,0 +1,154 @@
+---
+---
+
+<section class="hero">
+  <div class="bg-grid"></div>
+  <div class="hero-glow bg-glow"></div>
+
+  <!-- Animated node network -->
+  <svg class="hero-visual" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Connection lines -->
+    <line x1="200" y1="150" x2="600" y2="450" stroke="#2ecc71" stroke-opacity="0.25" stroke-width="1.5"/>
+    <line x1="600" y1="450" x2="1000" y2="200" stroke="#2ecc71" stroke-opacity="0.2" stroke-width="1.5"/>
+    <line x1="600" y1="450" x2="350" y2="700" stroke="#2ecc71" stroke-opacity="0.2" stroke-width="1.5"/>
+    <line x1="600" y1="450" x2="900" y2="700" stroke="#2ecc71" stroke-opacity="0.25" stroke-width="1.5"/>
+    <line x1="100" y1="400" x2="200" y2="150" stroke="#2ecc71" stroke-opacity="0.12" stroke-width="1"/>
+    <line x1="100" y1="400" x2="350" y2="700" stroke="#2ecc71" stroke-opacity="0.12" stroke-width="1"/>
+    <line x1="1000" y1="200" x2="1100" y2="500" stroke="#2ecc71" stroke-opacity="0.12" stroke-width="1"/>
+    <line x1="1100" y1="500" x2="900" y2="700" stroke="#2ecc71" stroke-opacity="0.12" stroke-width="1"/>
+    <line x1="200" y1="150" x2="500" y2="100" stroke="#2ecc71" stroke-opacity="0.1" stroke-width="1"/>
+    <line x1="500" y1="100" x2="800" y2="150" stroke="#2ecc71" stroke-opacity="0.1" stroke-width="1"/>
+    <line x1="800" y1="150" x2="1000" y2="200" stroke="#2ecc71" stroke-opacity="0.1" stroke-width="1"/>
+    <line x1="350" y1="700" x2="600" y2="800" stroke="#2ecc71" stroke-opacity="0.08" stroke-width="1"/>
+    <line x1="600" y1="800" x2="900" y2="700" stroke="#2ecc71" stroke-opacity="0.08" stroke-width="1"/>
+    <line x1="100" y1="400" x2="600" y2="450" stroke="#2ecc71" stroke-opacity="0.1" stroke-width="1"/>
+    <line x1="1100" y1="500" x2="600" y2="450" stroke="#2ecc71" stroke-opacity="0.1" stroke-width="1"/>
+    <!-- Nodes -->
+    <circle cx="200" cy="150" r="10" fill="#2ecc71" opacity="0.6" class="node node-1"/>
+    <circle cx="600" cy="450" r="18" fill="#2ecc71" opacity="0.8" class="node node-2"/>
+    <circle cx="1000" cy="200" r="9" fill="#2ecc71" opacity="0.5" class="node node-3"/>
+    <circle cx="350" cy="700" r="12" fill="#2ecc71" opacity="0.5" class="node node-4"/>
+    <circle cx="900" cy="700" r="10" fill="#2ecc71" opacity="0.6" class="node node-5"/>
+    <circle cx="100" cy="400" r="7" fill="#2ecc71" opacity="0.3" class="node node-6"/>
+    <circle cx="1100" cy="500" r="7" fill="#2ecc71" opacity="0.3" class="node node-7"/>
+    <circle cx="500" cy="100" r="5" fill="#2ecc71" opacity="0.25" class="node node-8"/>
+    <circle cx="800" cy="150" r="6" fill="#2ecc71" opacity="0.3" class="node node-9"/>
+    <circle cx="600" cy="800" r="8" fill="#2ecc71" opacity="0.2" class="node node-10"/>
+    <!-- Glow rings -->
+    <circle cx="600" cy="450" r="40" fill="none" stroke="#2ecc71" stroke-opacity="0.15" stroke-width="1.5" class="ring"/>
+    <circle cx="600" cy="450" r="70" fill="none" stroke="#2ecc71" stroke-opacity="0.08" stroke-width="1" class="ring ring-outer"/>
+    <circle cx="600" cy="450" r="110" fill="none" stroke="#2ecc71" stroke-opacity="0.04" stroke-width="1" class="ring ring-outermost"/>
+  </svg>
+
+  <div class="container hero-content">
+    <h1 class="hero-headline">
+      AI and data solutions for <span class="gradient-text">financial services.</span>
+    </h1>
+    <p class="hero-sub">
+      From strategy through production — we design, build, and operationalize AI and data solutions that deliver measurable business outcomes.
+    </p>
+    <p class="hero-credential">
+      Built on 17+ years of engineering mission-critical data infrastructure for the world's top financial institutions — including pension funds, prime brokerages, asset managers, and government-sponsored enterprises.
+    </p>
+    <a href="/contact" class="btn btn-primary">Talk to Us &rarr;</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 116px;
+  }
+
+  .hero-glow {
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(46, 204, 113, 0.2), transparent 70%);
+  }
+
+  .hero-visual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    max-width: 1600px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .node {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .node-1 { animation-delay: 0s; }
+  .node-2 { animation-delay: 0.5s; }
+  .node-3 { animation-delay: 1s; }
+  .node-4 { animation-delay: 1.5s; }
+  .node-5 { animation-delay: 2s; }
+  .node-6 { animation-delay: 0.8s; }
+  .node-7 { animation-delay: 1.8s; }
+  .node-8 { animation-delay: 0.3s; }
+  .node-9 { animation-delay: 1.3s; }
+  .node-10 { animation-delay: 2.2s; }
+
+  .ring {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .ring-outer {
+    animation-delay: 1s;
+  }
+
+  .ring-outermost {
+    animation-delay: 2s;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+
+  .hero-credential {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 560px;
+    margin-bottom: 40px;
+    border-left: 2px solid var(--accent);
+    padding-left: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 80vh;
+    }
+
+    .hero-visual {
+      width: 120%;
+      opacity: 0.3;
+    }
+  }
+</style>
