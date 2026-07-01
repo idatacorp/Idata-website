@@ -23,6 +23,8 @@
 
     <div class="footer-copyright">
       &copy; 2026 IData Corporation. All rights reserved.
+      <span class="footer-sep">&middot;</span>
+      <a href="/privacy" class="footer-privacy">Privacy Policy</a>
     </div>
   </div>
 </footer>
@@ -82,5 +84,19 @@
   .footer-copyright {
     font-size: 0.8rem;
     color: var(--text-muted);
+  }
+
+  .footer-sep {
+    margin: 0 8px;
+    color: var(--text-muted);
+  }
+
+  .footer-privacy {
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-privacy:hover {
+    color: var(--accent);
   }
 </style>
