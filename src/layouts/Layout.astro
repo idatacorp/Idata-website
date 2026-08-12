@@ -2,11 +2,13 @@
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title = 'IData — AI & Data Consulting',
   description = 'We help enterprises put AI to work. From strategy through production — we design, build, and operationalize AI and data solutions that deliver measurable business outcomes.',
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -20,6 +22,7 @@ const {
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#000000" />
     <meta name="keywords" content="AI consulting, enterprise AI, AI strategy financial services, data modernization, cloud data migration, RAG implementation, LLM consulting" />
     <link rel="canonical" href="https://idata.net" />
