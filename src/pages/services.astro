@@ -2,70 +2,86 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import PageHeader from '../components/PageHeader.astro';
+import OfferCard from '../components/OfferCard.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 import Footer from '../components/Footer.astro';
+import { OFFERS, DATRIS_LICENSING_URL } from '../data/site';
 
-const services = [
+const capabilities = [
   {
-    title: 'AI Strategy & Roadmap',
-    desc: "We assess your current data landscape, identify high-impact AI use cases, and deliver a prioritized roadmap with architecture blueprints and ROI projections. Ideal for organizations that know AI matters but aren't sure where to start.",
-    deliverables: 'Strategy deck, prioritized use case backlog, architecture blueprint, cost model',
-  },
-  {
-    title: 'Data Modernization & Cloud Migration',
-    desc: "Legacy systems and siloed databases are the #1 blocker to AI adoption. We design and build modern, cloud-native data ecosystems — data lakes, lakehouses, streaming ingestion, and governance frameworks — that make your data AI-ready.",
-    deliverables: 'Cloud architecture, data lake/lakehouse, ETL/ELT pipelines, data catalog, security & compliance implementation',
-    technologies: 'AWS, Azure, GCP, Databricks, Snowflake, Apache Iceberg, Delta Lake, Kafka, Terraform',
-  },
-  {
-    title: 'AI Application Development',
-    desc: 'Custom AI-powered applications tailored to your business — RAG-powered knowledge systems, intelligent document processing, chatbots, copilots, recommendation engines, and anomaly detection.',
-    deliverables: 'Production AI application, API layer, vector database integration, evaluation framework, documentation',
-    technologies: 'OpenAI, Anthropic, AWS Bedrock, LangChain, Qdrant, Elastic, PostgreSQL',
-  },
-  {
-    title: 'Intelligent Automation',
-    desc: 'Automate document processing, data extraction, classification, validation, and decision support workflows with AI. Reduce manual effort and accelerate throughput on repetitive, high-volume tasks.',
-    deliverables: 'Automation pipeline, human-in-the-loop UI, monitoring dashboard, integration with existing systems',
+    title: 'Data Modernization & Lakehouse',
+    desc: 'Cloud-native data platforms that agents and analysts can both use: data lakes, lakehouses, streaming ingestion, and the governance to go with them. Datris loads and governs beside the lake; it does not replace it.',
+    deliverables: 'Cloud architecture, lake or lakehouse, ingestion pipelines, data catalog, security and compliance implementation',
+    technologies: 'AWS, Azure, GCP, Databricks, Unity Catalog, Snowflake, Apache Iceberg, Kafka, Terraform',
   },
   {
     title: 'Data Quality & Governance',
-    desc: 'Clean data is the prerequisite for every AI initiative. We implement data validation, profiling, deduplication, and governance frameworks that ensure your data is accurate, compliant, and trustworthy.',
-    deliverables: 'Data quality rule engine, profiling reports, compliance policies, dataset registration and cataloging',
+    desc: 'Validation, profiling, deduplication, and field protection on every feed. Rules written in plain language, enforced on every record, with evidence of what passed and what did not.',
+    deliverables: 'Validation rule set, profiling reports, protection policy for sensitive fields, catalog registration',
   },
   {
-    title: 'Production Support & Optimization',
-    desc: "We don't disappear after launch. Ongoing support for CI/CD pipelines, monitoring, cost optimization, model drift detection, and capability expansion as your AI maturity grows.",
-    deliverables: 'CI/CD pipeline, monitoring dashboards, SLA-backed support, quarterly optimization reviews',
-  },
-];
-
-const models = [
-  {
-    name: 'Advisory',
-    desc: 'Short-term strategy engagements (2–4 weeks). AI readiness assessments and roadmapping.',
+    title: 'AI Application Development',
+    desc: 'The agent or application on top of the governed data: research assistants, operations copilots, document processing, retrieval over internal knowledge.',
+    deliverables: 'Production application, governed tool access, evaluation suite, documentation',
+    technologies: 'Anthropic, OpenAI, AWS Bedrock, Azure OpenAI, local models via Ollama, MCP',
   },
   {
-    name: 'Project-Based',
-    desc: 'Fixed-scope delivery of a specific AI or data modernization solution.',
-  },
-  {
-    name: 'Embedded Team',
-    desc: 'Our engineers work alongside your team on a sustained basis. Ideal for multi-year transformation programs.',
+    title: 'Advisory',
+    desc: 'Short engagements for teams that need a plan before a build: data readiness for agents, platform selection, security and compliance design, roadmap.',
+    deliverables: 'Assessment report, architecture blueprint, prioritized roadmap',
   },
 ];
 ---
 
-<Layout title="Services — IData" description="End-to-end AI and data consulting — from strategy to production.">
+<Layout
+  title="Services — IData"
+  description="Agent data integration services on Datris for financial institutions: assessment, fixed-scope implementation, and Run With You operations inside your infrastructure."
+>
   <Nav />
   <PageHeader
     headline="Services"
-    subheadline="End-to-end AI and data consulting — from strategy to production."
+    subheadline="We connect AI agents to governed financial data and stay accountable for the result. Three packaged offers, each scoped and priced on its own."
   />
 
-  <section class="services-list">
+  <section class="offers">
     <div class="container">
-      {services.map((svc, i) => (
+      <div class="section-label">Packaged Offers</div>
+      <h2 class="section-title animate-on-scroll">Assess. Implement. Run With You.</h2>
+      <p class="section-subtitle animate-on-scroll">
+        Start with one workflow. Every stage ends with something you own, whether or not you continue to the next.
+      </p>
+      <div class="grid-3" style="margin-top: 40px;">
+        {OFFERS.map((o, i) => (
+          <OfferCard
+            stage={o.stage}
+            name={o.name}
+            shape={o.shape}
+            summary={o.summary}
+            deliverables={o.deliverables}
+            keep={o.keep}
+            delay={i * 100}
+          />
+        ))}
+      </div>
+      <div class="offers-note animate-on-scroll">
+        <p>
+          <strong>Pricing.</strong> No number on this page, on purpose: an engagement is scoped to one workflow and one environment. Tell us the shape and we will reply with a proposal.
+        </p>
+        <p>
+          <strong>Licensing.</strong> Datris is open source. If your organization requires a commercial license, that is sold separately through <a href={DATRIS_LICENSING_URL} target="_blank" rel="noopener">datris.ai</a>. Our services do not depend on it.
+        </p>
+        <a href="/contact?offer=assessment" class="btn btn-primary">Request a proposal &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section class="capabilities">
+    <div class="container">
+      <div class="section-label">Supporting Capabilities</div>
+      <h2 class="section-title animate-on-scroll">What the offers are built from</h2>
+      {capabilities.map((svc, i) => (
         <div class="service-block animate-on-scroll" style={`transition-delay: ${i * 80}ms`}>
           <h3 class="service-title">{svc.title}</h3>
           <p class="service-desc">{svc.desc}</p>
@@ -86,30 +102,45 @@ const models = [
     </div>
   </section>
 
-  <hr class="section-divider" />
-
-  <section class="engagement-models">
-    <div class="container">
-      <div class="section-label">Engagement Models</div>
-      <h2 class="section-title animate-on-scroll">How We Work With You</h2>
-      <div class="grid-3" style="margin-top: 32px;">
-        {models.map((model, i) => (
-          <div class="card animate-on-scroll" style={`transition-delay: ${i * 100}ms`}>
-            <h3 class="card-title">{model.name}</h3>
-            <p class="card-description">{model.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <CtaBanner />
+  <CtaBanner headline="Start with one workflow." buttonText="Request a proposal →" href="/contact?offer=assessment" />
   <Footer />
 </Layout>
 
 <style>
-  .services-list {
+  .offers {
     padding: 40px 0 80px;
+  }
+
+  .offers-note {
+    margin-top: 40px;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .offers-note p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .offers-note strong {
+    color: var(--text-primary);
+  }
+
+  .offers-note a:not(.btn) {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .offers-note .btn {
+    margin-top: 8px;
+  }
+
+  .capabilities {
+    padding: var(--section-padding);
   }
 
   .service-block {
@@ -157,10 +188,6 @@ const models = [
 
   .meta-value {
     color: var(--text-secondary);
-  }
-
-  .engagement-models {
-    padding: var(--section-padding);
   }
 
   @media (max-width: 480px) {

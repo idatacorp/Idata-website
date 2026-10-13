@@ -1,4 +1,5 @@
 ---
+import { FOUNDED, AWS_SINCE } from '../data/site';
 ---
 
 <section class="hero">
@@ -7,7 +8,6 @@
 
   <!-- Animated node network -->
   <svg class="hero-visual" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <!-- Connection lines -->
     <line x1="200" y1="150" x2="600" y2="450" stroke="#2ecc71" stroke-opacity="0.25" stroke-width="1.5"/>
     <line x1="600" y1="450" x2="1000" y2="200" stroke="#2ecc71" stroke-opacity="0.2" stroke-width="1.5"/>
     <line x1="600" y1="450" x2="350" y2="700" stroke="#2ecc71" stroke-opacity="0.2" stroke-width="1.5"/>
@@ -23,7 +23,6 @@
     <line x1="600" y1="800" x2="900" y2="700" stroke="#2ecc71" stroke-opacity="0.08" stroke-width="1"/>
     <line x1="100" y1="400" x2="600" y2="450" stroke="#2ecc71" stroke-opacity="0.1" stroke-width="1"/>
     <line x1="1100" y1="500" x2="600" y2="450" stroke="#2ecc71" stroke-opacity="0.1" stroke-width="1"/>
-    <!-- Nodes -->
     <circle cx="200" cy="150" r="10" fill="#2ecc71" opacity="0.6" class="node node-1"/>
     <circle cx="600" cy="450" r="18" fill="#2ecc71" opacity="0.8" class="node node-2"/>
     <circle cx="1000" cy="200" r="9" fill="#2ecc71" opacity="0.5" class="node node-3"/>
@@ -34,23 +33,26 @@
     <circle cx="500" cy="100" r="5" fill="#2ecc71" opacity="0.25" class="node node-8"/>
     <circle cx="800" cy="150" r="6" fill="#2ecc71" opacity="0.3" class="node node-9"/>
     <circle cx="600" cy="800" r="8" fill="#2ecc71" opacity="0.2" class="node node-10"/>
-    <!-- Glow rings -->
     <circle cx="600" cy="450" r="40" fill="none" stroke="#2ecc71" stroke-opacity="0.15" stroke-width="1.5" class="ring"/>
     <circle cx="600" cy="450" r="70" fill="none" stroke="#2ecc71" stroke-opacity="0.08" stroke-width="1" class="ring ring-outer"/>
     <circle cx="600" cy="450" r="110" fill="none" stroke="#2ecc71" stroke-opacity="0.04" stroke-width="1" class="ring ring-outermost"/>
   </svg>
 
   <div class="container hero-content">
+    <div class="hero-kicker">AI agent data integration for financial institutions</div>
     <h1 class="hero-headline">
-      AI and data solutions for <span class="gradient-text">financial services.</span>
+      Connect your AI agents to data they can be <span class="gradient-text">trusted with.</span>
     </h1>
     <p class="hero-sub">
-      From strategy through production — we design, build, and operationalize AI and data solutions that deliver measurable business outcomes.
+      IData designs, deploys, and operates agent data workflows on Datris, the open-source data control plane we built. Governed access, validated feeds, and a full evidence trail, inside your infrastructure.
     </p>
     <p class="hero-credential">
-      Built on 17+ years of engineering mission-critical data infrastructure for the world's top financial institutions — including pension funds, prime brokerages, asset managers, and government-sponsored enterprises.
+      Founded in {FOUNDED}. Building on AWS since {AWS_SINCE}. Mission-critical data infrastructure for pension funds, prime brokerages, asset managers, and government-sponsored enterprises.
     </p>
-    <a href="/contact" class="btn btn-primary">Talk to Us &rarr;</a>
+    <div class="hero-actions">
+      <a href="/contact?offer=assessment" class="btn btn-primary">Request a proposal &rarr;</a>
+      <a href="#how-it-works" class="btn btn-secondary">See how it works</a>
+    </div>
   </div>
 </section>
 
@@ -82,10 +84,7 @@
     pointer-events: none;
   }
 
-  .node {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
+  .node { animation: pulse-glow 3s ease-in-out infinite; }
   .node-1 { animation-delay: 0s; }
   .node-2 { animation-delay: 0.5s; }
   .node-3 { animation-delay: 1s; }
@@ -97,22 +96,23 @@
   .node-9 { animation-delay: 1.3s; }
   .node-10 { animation-delay: 2.2s; }
 
-  .ring {
-    animation: pulse-glow 4s ease-in-out infinite;
-  }
-
-  .ring-outer {
-    animation-delay: 1s;
-  }
-
-  .ring-outermost {
-    animation-delay: 2s;
-  }
+  .ring { animation: pulse-glow 4s ease-in-out infinite; }
+  .ring-outer { animation-delay: 1s; }
+  .ring-outermost { animation-delay: 2s; }
 
   .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 720px;
+    max-width: 760px;
+  }
+
+  .hero-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
   }
 
   .hero-headline {
@@ -127,7 +127,7 @@
     font-size: 1.2rem;
     color: var(--text-secondary);
     line-height: 1.7;
-    max-width: 600px;
+    max-width: 640px;
     margin-bottom: 20px;
   }
 
@@ -141,14 +141,14 @@
     padding-left: 16px;
   }
 
-  @media (max-width: 768px) {
-    .hero {
-      min-height: 80vh;
-    }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
 
-    .hero-visual {
-      width: 120%;
-      opacity: 0.3;
-    }
+  @media (max-width: 768px) {
+    .hero { min-height: 80vh; }
+    .hero-visual { width: 120%; opacity: 0.3; }
   }
 </style>

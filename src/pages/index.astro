@@ -2,13 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
+import OfferCard from '../components/OfferCard.astro';
+import WorkflowDiagram from '../components/WorkflowDiagram.astro';
 import TechLogos from '../components/TechLogos.astro';
-import ProcessSteps from '../components/ProcessSteps.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
-import ClientLogos from '../components/ClientLogos.astro';
+import ClientMarquee from '../components/ClientMarquee.astro';
 import BlogCard from '../components/BlogCard.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 import Footer from '../components/Footer.astro';
+import { OFFERS, MCP_TOOL_COUNT, FOUNDED, DATRIS_URL } from '../data/site';
 ---
 
 <Layout>
@@ -20,8 +22,8 @@ import Footer from '../components/Footer.astro';
     <div class="container">
       <div class="stats-grid">
         <div class="stat animate-on-scroll" style="transition-delay: 0ms">
-          <span class="stat-number gradient-text">17+</span>
-          <span class="stat-label">Years in cloud data engineering</span>
+          <span class="stat-number gradient-text">{FOUNDED}</span>
+          <span class="stat-label">Founded. Financial services from day one.</span>
         </div>
         <div class="stat animate-on-scroll" style="transition-delay: 100ms">
           <span class="stat-number gradient-text">$200B+</span>
@@ -29,7 +31,11 @@ import Footer from '../components/Footer.astro';
         </div>
         <div class="stat animate-on-scroll" style="transition-delay: 200ms">
           <span class="stat-number gradient-text">Fortune 500</span>
-          <span class="stat-label">Clients across financial services</span>
+          <span class="stat-label">Clients across banking, asset management, and pensions</span>
+        </div>
+        <div class="stat animate-on-scroll" style="transition-delay: 300ms">
+          <span class="stat-number gradient-text">{MCP_TOOL_COUNT}</span>
+          <span class="stat-label">Agent tools in Datris, the open-source platform we maintain</span>
         </div>
       </div>
     </div>
@@ -39,7 +45,7 @@ import Footer from '../components/Footer.astro';
   <section class="problem-statement">
     <div class="container animate-on-scroll">
       <p class="problem-text">
-        "Most organizations are drowning in data but starving for insight. Legacy systems, siloed databases, and fragmented ownership make it nearly impossible to move forward with AI. <strong>We fix that.</strong>"
+        "The agent prototype works. The path to production data does not. Nobody can say which data the agent may read, whether that data was checked, or what the agent did with it. <strong>We build that path.</strong>"
       </p>
     </div>
   </section>
@@ -50,21 +56,22 @@ import Footer from '../components/Footer.astro';
   <section class="pain-points">
     <div class="container">
       <div class="section-label">The Challenge</div>
-      <div class="grid-3">
+      <h2 class="section-title animate-on-scroll">Why agents stall at the data layer</h2>
+      <div class="grid-3" style="margin-top: 32px;">
         <div class="card animate-on-scroll" style="transition-delay: 0ms">
           <div class="card-icon">🔒</div>
-          <h3 class="card-title">Siloed Data</h3>
-          <p class="card-description">Your data lives in dozens of disconnected systems. No single source of truth. No enterprise visibility.</p>
+          <h3 class="card-title">Ungoverned access</h3>
+          <p class="card-description">The agent gets a service account and a connection string. Security asks what it can reach. Nobody has a precise answer.</p>
         </div>
         <div class="card animate-on-scroll" style="transition-delay: 100ms">
-          <div class="card-icon">🧩</div>
-          <h3 class="card-title">Fragmented Ownership</h3>
-          <p class="card-description">Every team has built their own solution. Reconciliation is manual, slow, and expensive.</p>
+          <div class="card-icon">🧾</div>
+          <h3 class="card-title">No evidence trail</h3>
+          <p class="card-description">When an answer is wrong, there is no record of which feed, which version, or which rule it came from. Compliance cannot sign off on that.</p>
         </div>
         <div class="card animate-on-scroll" style="transition-delay: 200ms">
-          <div class="card-icon">🚫</div>
-          <h3 class="card-title">No Path to AI</h3>
-          <p class="card-description">You can't build AI on a broken data foundation. Legacy systems block every initiative.</p>
+          <div class="card-icon">🧩</div>
+          <h3 class="card-title">Hand-built, fragile feeds</h3>
+          <p class="card-description">Each source gets a one-off script. Vendors change formats, schemas drift, and the people who wrote the scripts move on.</p>
         </div>
       </div>
     </div>
@@ -72,26 +79,87 @@ import Footer from '../components/Footer.astro';
 
   <hr class="section-divider" />
 
-  <!-- How We Help -->
-  <section class="how-we-help">
+  <!-- Engagement: three offers -->
+  <section class="offers" id="services">
     <div class="container">
-      <div class="section-label">The Solution</div>
-      <h2 class="section-title animate-on-scroll">How We Help</h2>
-      <div class="grid-3">
+      <div class="section-label">How We Work</div>
+      <h2 class="section-title animate-on-scroll">Assess. Implement. Run With You.</h2>
+      <p class="section-subtitle animate-on-scroll">
+        Three stages, each priced and scoped on its own. Start with one workflow. Every engagement reuses the connectors, policies, and patterns from the last, so the second workflow costs less than the first.
+      </p>
+      <div class="grid-3" style="margin-top: 40px;">
+        {OFFERS.map((o, i) => (
+          <OfferCard
+            stage={o.stage}
+            name={o.name}
+            shape={o.shape}
+            summary={o.summary}
+            href={`/services#${o.name.toLowerCase().replace(/\s+/g, '-')}`}
+            delay={i * 100}
+            compact
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Worked example -->
+  <section class="example" id="how-it-works">
+    <div class="container">
+      <div class="section-label">One Workflow, End to End</div>
+      <h2 class="section-title animate-on-scroll">Investment research data for an AI agent</h2>
+      <p class="section-subtitle animate-on-scroll">
+        A research team has an agent that answers questions well in a demo. To use it for real, it needs approved vendor data, selected internal research, and portfolio positions, with every record validated and every access recorded. This is what we build.
+      </p>
+      <div class="example-diagram animate-on-scroll" style="transition-delay: 100ms">
+        <WorkflowDiagram />
+      </div>
+      <div class="grid-3 example-points" style="margin-top: 40px;">
+        <div class="animate-on-scroll" style="transition-delay: 0ms">
+          <h4>Acquire and validate</h4>
+          <p>Datris taps pull each source on a schedule or on event. Validation rules, written in plain language and enforced on every record, stop bad data before the agent sees it.</p>
+        </div>
+        <div class="animate-on-scroll" style="transition-delay: 100ms">
+          <h4>Govern the agent</h4>
+          <p>The agent reaches data only through governed tools. Policy decides what it may read and do. Sensitive fields are protected before they leave the platform.</p>
+        </div>
+        <div class="animate-on-scroll" style="transition-delay: 200ms">
+          <h4>Prove what happened</h4>
+          <p>Every run has lineage and an audit entry: which source, which version, which rule, which agent. Compliance can trace any answer back to the data that produced it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Why IData + Datris -->
+  <section class="why">
+    <div class="container">
+      <div class="section-label">Why IData</div>
+      <h2 class="section-title animate-on-scroll">Delivered by the people who built the platform</h2>
+      <div class="grid-2" style="margin-top: 32px;">
         <div class="card animate-on-scroll" style="transition-delay: 0ms">
-          <div class="card-icon">💡</div>
-          <h3 class="card-title">AI Strategy & Roadmap</h3>
-          <p class="card-description">We assess your data maturity, identify high-impact AI use cases, and build a phased plan aligned to business goals.</p>
+          <div class="card-icon">🔍</div>
+          <h3 class="card-title">Open source, inspectable</h3>
+          <p class="card-description">Datris is open source. Your security team can read every line, your platform team can fork it, and nothing phones home. <a href={DATRIS_URL} target="_blank" rel="noopener">datris.ai &rarr;</a></p>
         </div>
         <div class="card animate-on-scroll" style="transition-delay: 100ms">
-          <div class="card-icon">⚙️</div>
-          <h3 class="card-title">AI & Data Solutions</h3>
-          <p class="card-description">From RAG-powered knowledge systems to intelligent automation to enterprise data lakes — we design and build what you need.</p>
+          <div class="card-icon">🏛️</div>
+          <h3 class="card-title">Runs inside your perimeter</h3>
+          <p class="card-description">Your cloud or your data center, your credentials, your access controls. We work within them. There is no hosted service and no third-party processor.</p>
         </div>
         <div class="card animate-on-scroll" style="transition-delay: 200ms">
-          <div class="card-icon">🚀</div>
-          <h3 class="card-title">Production & Scale</h3>
-          <p class="card-description">We don't stop at prototypes. We engineer AI and data systems for reliability, security, and enterprise-grade performance.</p>
+          <div class="card-icon">🏦</div>
+          <h3 class="card-title">Financial services since {FOUNDED}</h3>
+          <p class="card-description">Pension funds, prime brokerages, asset managers, and government-sponsored enterprises. We know the data, the controls, and the review process.</p>
+        </div>
+        <div class="card animate-on-scroll" style="transition-delay: 300ms">
+          <div class="card-icon">♻️</div>
+          <h3 class="card-title">Reuse, not rebuild</h3>
+          <p class="card-description">Taps, policies, destination patterns, and acceptance suites carry from one engagement to the next. You pay for your workflow, not for us to start over.</p>
         </div>
       </div>
     </div>
@@ -99,9 +167,6 @@ import Footer from '../components/Footer.astro';
 
   <!-- Technology Partners -->
   <TechLogos />
-
-  <!-- Our Approach -->
-  <ProcessSteps />
 
   <hr class="section-divider" />
 
@@ -113,22 +178,22 @@ import Footer from '../components/Footer.astro';
       <div class="grid-3" style="margin-top: 32px;">
         <div class="animate-on-scroll" style="transition-delay: 0ms">
           <CaseStudyCard
-            title="AI-Powered OpsChat for Enterprise Operations"
-            summary="Built an AI conversational interface that lets L1/L2 support staff diagnose operational issues instantly — ingesting 140,000+ log messages per second into a RAG vector database via a GPU server farm."
+            title="Enterprise Data Lake for a $200B Pension Fund"
+            summary="Built a cloud-based data ecosystem that gave investment teams instant, governed access to hundreds of datasets. The foundation that agent workflows now build on."
             href="/case-studies"
           />
         </div>
         <div class="animate-on-scroll" style="transition-delay: 100ms">
           <CaseStudyCard
-            title="Enterprise Data Lake for a $200B Pension Fund"
-            summary="Built a cloud-based data ecosystem that gave investment teams instant access to hundreds of datasets for analytics-driven decisions."
+            title="AI-Powered OpsChat for Enterprise Operations"
+            summary="A conversational interface that lets support staff diagnose operational issues instantly, ingesting 140,000+ log messages per second into governed retrieval."
             href="/case-studies"
           />
         </div>
         <div class="animate-on-scroll" style="transition-delay: 200ms">
           <CaseStudyCard
-            title="Datris.ai — AI Agent-Native Data Platform"
-            summary="Founded and built an open-source data platform where AI agents operate pipelines via MCP — ingestion, validation, transformation, and RAG — all driven by natural language instead of code."
+            title="Datris: the platform behind the work"
+            summary="The open-source data control plane we created and maintain. Agents operate pipelines through governed tools, with policy, lineage, and audit built in."
             href="/case-studies"
           />
         </div>
@@ -138,9 +203,6 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
   </section>
-
-  <!-- Client Logos -->
-  <ClientLogos />
 
   <hr class="section-divider" />
 
@@ -176,7 +238,14 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- CTA -->
-  <CtaBanner />
+  <CtaBanner
+    headline="Start with one workflow."
+    buttonText="Request a proposal →"
+    href="/contact?offer=assessment"
+  />
+
+  <!-- Client marquee -->
+  <ClientMarquee />
 
   <Footer />
 </Layout>
@@ -192,7 +261,7 @@ import Footer from '../components/Footer.astro';
     font-weight: 500;
     line-height: 1.6;
     color: var(--text-secondary);
-    max-width: 800px;
+    max-width: 820px;
     margin: 0 auto;
     text-align: center;
   }
@@ -202,10 +271,33 @@ import Footer from '../components/Footer.astro';
   }
 
   .pain-points,
-  .how-we-help,
+  .offers,
+  .example,
+  .why,
   .case-studies-preview,
   .blog-preview {
     padding: var(--section-padding);
+  }
+
+  .example-diagram {
+    margin-top: 40px;
+  }
+
+  .example-points h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .example-points p {
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .why .card-description a {
+    color: var(--accent);
+    font-weight: 600;
   }
 
   .cta-link {
@@ -220,8 +312,8 @@ import Footer from '../components/Footer.astro';
 
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
     text-align: center;
   }
 
@@ -240,6 +332,12 @@ import Footer from '../components/Footer.astro';
   .stat-label {
     font-size: 0.9rem;
     color: var(--text-secondary);
+  }
+
+  @media (max-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: 768px) {
