@@ -1,0 +1,127 @@
+---
+interface Props {
+  stage: string;
+  name: string;
+  shape: string;
+  summary: string;
+  deliverables?: string[];
+  keep?: string;
+  href?: string;
+  delay?: number;
+  compact?: boolean;
+}
+
+const { stage, name, shape, summary, deliverables = [], keep, href, delay = 0, compact = false } = Astro.props;
+---
+
+<article class="offer card animate-on-scroll" style={`transition-delay: ${delay}ms`} id={!compact ? name.toLowerCase().replace(/\s+/g, '-') : undefined}>
+  <div class="offer-stage">{stage}</div>
+  <h3 class="offer-name">{name}</h3>
+  <div class="offer-shape">{shape}</div>
+  <p class="offer-summary">{summary}</p>
+  {!compact && deliverables.length > 0 && (
+    <div class="offer-section">
+      <span class="offer-label">You get</span>
+      <ul class="offer-list">
+        {deliverables.map((d) => <li>{d}</li>)}
+      </ul>
+    </div>
+  )}
+  {!compact && keep && (
+    <div class="offer-section">
+      <span class="offer-label">You keep</span>
+      <p class="offer-keep">{keep}</p>
+    </div>
+  )}
+  {href && <a href={href} class="offer-link">Learn more &rarr;</a>}
+</article>
+
+<style>
+  .offer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+  }
+
+  .offer-stage {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .offer-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .offer-shape {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .offer-summary {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-top: 6px;
+  }
+
+  .offer-section {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .offer-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .offer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .offer-list li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .offer-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .offer-keep {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .offer-link {
+    margin-top: auto;
+    padding-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+</style>

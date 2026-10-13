@@ -5,11 +5,11 @@ import PageHeader from '../components/PageHeader.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Contact — IData" description="Start a conversation with IData about AI strategy, data modernization, or AI application development.">
+<Layout title="Contact — IData" description="Request a proposal for an agent data assessment, a fixed-scope integration, or Run With You operations. Or just start a conversation.">
   <Nav />
   <PageHeader
-    headline="Let's Talk"
-    subheadline="Whether you're exploring AI for the first time or modernizing your data foundation for the future, we'd love to hear from you."
+    headline="Request a proposal"
+    subheadline="Tell us the workflow, the sources, and the environment. We reply within two business days with a scoped proposal, or a few questions first."
   />
 
   <section class="contact-section">
@@ -18,6 +18,7 @@ import Footer from '../components/Footer.astro';
 
         <!-- Form -->
         <form class="contact-form card animate-on-scroll" action="https://formspree.io/f/mqegzvbl" method="POST">
+          <input type="hidden" name="_subject" value="idata.net inquiry" />
           <div class="form-group">
             <label for="name">Name <span class="required">*</span></label>
             <input type="text" id="name" name="name" required />
@@ -42,17 +43,17 @@ import Footer from '../components/Footer.astro';
             <label for="service">What can we help with? <span class="required">*</span></label>
             <select id="service" name="service" required>
               <option value="" disabled selected>Select a topic</option>
-              <option value="ai-strategy">AI Strategy</option>
-              <option value="data-modernization">Data Modernization</option>
-              <option value="ai-app-dev">AI Application Development</option>
-              <option value="intelligent-automation">Intelligent Automation</option>
-              <option value="other">Other</option>
+              <option value="assessment">Agent Data Assessment</option>
+              <option value="integration">Agent Data Integration</option>
+              <option value="run-with-you">Run With You (operations)</option>
+              <option value="data-modernization">Data Modernization &amp; Lakehouse</option>
+              <option value="other">Something else</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="message">Tell us more</label>
-            <textarea id="message" name="message" rows="5"></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="The workflow, the data sources involved, where it would run (cloud, on-prem), and anything your security team will ask about."></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">Send Message &rarr;</button>
@@ -83,6 +84,26 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </Layout>
+
+<script>
+  // Preselect the offer from ?offer=assessment|integration|run-with-you and
+  // keep the Formspree subject in step with the selection.
+  const select = document.querySelector<HTMLSelectElement>('#service');
+  const subject = document.querySelector<HTMLInputElement>('input[name="_subject"]');
+  const offer = new URLSearchParams(window.location.search).get('offer');
+
+  function syncSubject() {
+    if (!select || !subject) return;
+    const label = select.options[select.selectedIndex]?.text ?? 'inquiry';
+    subject.value = select.value ? `idata.net proposal request: ${label}` : 'idata.net inquiry';
+  }
+
+  if (select && offer && [...select.options].some((o) => o.value === offer)) {
+    select.value = offer;
+  }
+  syncSubject();
+  select?.addEventListener('change', syncSubject);
+</script>
 
 <style>
   .contact-section {

@@ -6,10 +6,26 @@ interface Props {
 }
 
 const {
-  title = 'IData — AI & Data Consulting',
-  description = 'We help enterprises put AI to work. From strategy through production — we design, build, and operationalize AI and data solutions that deliver measurable business outcomes.',
+  title = 'IData — AI Agent Data Integration for Financial Institutions',
+  description = 'IData connects AI agents to governed financial data. We design, deploy, and operate agent data workflows on Datris, the open-source data control plane we built, inside your infrastructure.',
   noindex = false,
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://idata.net').href;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'IData Corporation',
+  url: 'https://idata.net',
+  foundingDate: '1998',
+  email: 'info@idata.net',
+  sameAs: [
+    'https://www.linkedin.com/company/14068550',
+    'https://datris.ai',
+    'https://github.com/datris/datris-platform-oss',
+  ],
+};
 ---
 
 <!doctype html>
@@ -24,12 +40,13 @@ const {
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#000000" />
-    <meta name="keywords" content="AI consulting, enterprise AI, AI strategy financial services, data modernization, cloud data migration, RAG implementation, LLM consulting" />
-    <link rel="canonical" href="https://idata.net" />
+    <meta name="keywords" content="AI agent data integration, data control plane, Datris implementation, financial services data governance, agent data access, MCP data platform, data modernization financial services" />
+    <link rel="canonical" href={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://idata.net" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="IData Corporation" />

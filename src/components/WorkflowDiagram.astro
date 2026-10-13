@@ -1,0 +1,182 @@
+---
+// Three-column picture of one agent data workflow: sources → Datris → consumers.
+// Pure inline SVG so it inherits the site palette and needs no assets.
+---
+
+<figure class="workflow">
+  <svg viewBox="0 0 960 420" role="img" aria-labelledby="wf-title wf-desc" xmlns="http://www.w3.org/2000/svg">
+    <title id="wf-title">How an agent data workflow runs on Datris</title>
+    <desc id="wf-desc">Approved sources flow into Datris, where they are acquired, validated, governed by policy, and recorded with provenance, then published to the research agent and to the lake or warehouse.</desc>
+
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#2ecc71" fill-opacity="0.6"/>
+      </marker>
+    </defs>
+
+    <!-- Column labels -->
+    <text x="130" y="34" class="col-label" text-anchor="middle">APPROVED SOURCES</text>
+    <text x="480" y="34" class="col-label" text-anchor="middle">DATRIS · YOUR INFRASTRUCTURE</text>
+    <text x="830" y="34" class="col-label" text-anchor="middle">CONSUMERS</text>
+
+    <!-- Sources -->
+    <g class="box">
+      <rect x="40" y="70" width="180" height="56" rx="10"/>
+      <text x="130" y="94" text-anchor="middle" class="box-title">Market data vendors</text>
+      <text x="130" y="112" text-anchor="middle" class="box-sub">files · APIs · feeds</text>
+    </g>
+    <g class="box">
+      <rect x="40" y="146" width="180" height="56" rx="10"/>
+      <text x="130" y="170" text-anchor="middle" class="box-title">Filings and documents</text>
+      <text x="130" y="188" text-anchor="middle" class="box-sub">PDF · HTML · email</text>
+    </g>
+    <g class="box">
+      <rect x="40" y="222" width="180" height="56" rx="10"/>
+      <text x="130" y="246" text-anchor="middle" class="box-title">Internal research</text>
+      <text x="130" y="264" text-anchor="middle" class="box-sub">notes · models · tables</text>
+    </g>
+    <g class="box">
+      <rect x="40" y="298" width="180" height="56" rx="10"/>
+      <text x="130" y="322" text-anchor="middle" class="box-title">Portfolio systems</text>
+      <text x="130" y="340" text-anchor="middle" class="box-sub">databases · warehouses</text>
+    </g>
+
+    <!-- Arrows sources → Datris -->
+    <path d="M 220 98 C 270 98, 280 150, 320 150" class="flow" marker-end="url(#arrow)"/>
+    <path d="M 220 174 C 270 174, 280 180, 320 180" class="flow" marker-end="url(#arrow)"/>
+    <path d="M 220 250 C 270 250, 280 240, 320 240" class="flow" marker-end="url(#arrow)"/>
+    <path d="M 220 326 C 270 326, 280 270, 320 270" class="flow" marker-end="url(#arrow)"/>
+
+    <!-- Datris -->
+    <g class="core">
+      <rect x="330" y="70" width="300" height="284" rx="16"/>
+      <text x="480" y="104" text-anchor="middle" class="core-title">Data control plane</text>
+      <g class="step"><rect x="356" y="126" width="248" height="40" rx="8"/><text x="480" y="151" text-anchor="middle">Acquire on schedule or on event</text></g>
+      <g class="step"><rect x="356" y="174" width="248" height="40" rx="8"/><text x="480" y="199" text-anchor="middle">Validate every record</text></g>
+      <g class="step"><rect x="356" y="222" width="248" height="40" rx="8"/><text x="480" y="247" text-anchor="middle">Enforce access policy</text></g>
+      <g class="step"><rect x="356" y="270" width="248" height="40" rx="8"/><text x="480" y="295" text-anchor="middle">Record provenance and lineage</text></g>
+      <text x="480" y="338" text-anchor="middle" class="core-sub">audit log · secrets · field protection</text>
+    </g>
+
+    <!-- Arrows Datris → consumers -->
+    <path d="M 630 170 C 680 170, 690 130, 740 130" class="flow" marker-end="url(#arrow)"/>
+    <path d="M 630 250 C 680 250, 690 290, 740 290" class="flow" marker-end="url(#arrow)"/>
+
+    <!-- Consumers -->
+    <g class="box box-accent">
+      <rect x="740" y="98" width="180" height="64" rx="10"/>
+      <text x="830" y="124" text-anchor="middle" class="box-title">Research agent</text>
+      <text x="830" y="144" text-anchor="middle" class="box-sub">via MCP · governed tools</text>
+    </g>
+    <g class="box">
+      <rect x="740" y="258" width="180" height="64" rx="10"/>
+      <text x="830" y="284" text-anchor="middle" class="box-title">Lake or warehouse</text>
+      <text x="830" y="304" text-anchor="middle" class="box-sub">Databricks · Snowflake · Iceberg</text>
+    </g>
+
+    <!-- Evidence back-channel -->
+    <path d="M 830 162 L 830 258" class="flow flow-dashed"/>
+    <text x="842" y="214" class="box-sub">same lineage, both sides</text>
+  </svg>
+  <figcaption>
+    One workflow, end to end. Datris sits beside your lake and warehouse, loading and governing. It does not replace them.
+  </figcaption>
+</figure>
+
+<style>
+  .workflow {
+    margin: 0;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .workflow svg {
+    width: 100%;
+    height: auto;
+    font-family: var(--font-sans);
+  }
+
+  .col-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    fill: var(--accent);
+  }
+
+  .box rect {
+    fill: var(--bg-primary);
+    stroke: var(--border-color);
+    stroke-width: 1;
+  }
+
+  .box-accent rect {
+    stroke: var(--accent);
+    stroke-opacity: 0.6;
+  }
+
+  .box-title {
+    font-size: 13px;
+    font-weight: 600;
+    fill: var(--text-primary);
+  }
+
+  .box-sub {
+    font-size: 10.5px;
+    fill: var(--text-muted);
+  }
+
+  .core > rect {
+    fill: rgba(46, 204, 113, 0.06);
+    stroke: var(--accent);
+    stroke-opacity: 0.45;
+    stroke-width: 1.5;
+  }
+
+  .core-title {
+    font-size: 14px;
+    font-weight: 700;
+    fill: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .core-sub {
+    font-size: 10.5px;
+    fill: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .step rect {
+    fill: var(--bg-primary);
+    stroke: var(--border-color-hover);
+  }
+
+  .step text {
+    font-size: 12px;
+    fill: var(--text-secondary);
+  }
+
+  .flow {
+    fill: none;
+    stroke: var(--accent);
+    stroke-opacity: 0.5;
+    stroke-width: 1.5;
+  }
+
+  .flow-dashed {
+    stroke-dasharray: 4 4;
+    stroke-opacity: 0.3;
+  }
+
+  figcaption {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    .workflow { padding: 12px; }
+  }
+</style>
